@@ -1,0 +1,24 @@
+{
+  "name": "oscuro-nodejs-lib",
+  "version": "1.0.0",
+  "description": "Oscuro JS library for NodeJS hosts. Plug-and-play",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/**/*.js | faucet"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oscurojs/oscuro-nodejs-lib.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oscurojs/oscuro-nodejs-lib/issues"
+  },
+  "homepage": "https://github.com/oscurojs/oscuro-nodejs-lib#readme",
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "tape": "^4.11.0"
+  }
+}
