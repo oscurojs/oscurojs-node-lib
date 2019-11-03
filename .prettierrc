@@ -3,6 +3,5 @@
     "arrowParens": "avoid",
     "endOfLine": "lf",
     "useTabs": false,
-    "tabWidth": 2,
     "trailingComma": "none"
 }
