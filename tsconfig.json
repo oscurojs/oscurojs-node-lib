@@ -1,0 +1,14 @@
+{
+    "include": ["src"],
+    "exclude": ["node_modules"],
+    "compilerOptions": {
+        "allowJs": false,
+        "allowSyntheticDefaultImports": true,
+        "alwaysStrict": true,
+        "experimentalDecorators": true,
+        "strictNullChecks": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "outDir": "build"
+    }
+}

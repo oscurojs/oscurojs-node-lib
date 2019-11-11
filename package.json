@@ -1,14 +1,14 @@
 {
   "name": "oscuro-nodejs-lib",
   "version": "1.0.0",
-  "description": "Oscuro JS library for NodeJS hosts. Plug-and-play",
+  "description": "Oscuro JS library for Node hosts, written in Typescript and usable in both Javascript and Typescript.",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/**/*.js | faucet"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oscurojs/oscuro-nodejs-lib.git"
+    "url": "git+https://github.com/oscurojs/oscurojs-node-lib.git"
   },
   "keywords": [],
   "author": "",
@@ -18,7 +18,12 @@
   },
   "homepage": "https://github.com/oscurojs/oscuro-nodejs-lib#readme",
   "devDependencies": {
-    "faucet": "0.0.1",
-    "tape": "^4.11.0"
+    "@types/chai": "^4.2.4",
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.12.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.0",
+    "typescript": "^3.7.2"
   }
 }
