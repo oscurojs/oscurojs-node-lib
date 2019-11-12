@@ -11,7 +11,6 @@ import net from 'net';
  */
 export class App {
   private reader: readline.Interface;
-  private disconnected: boolean = false;
 
   constructor(
     private readonly socket: net.Socket,
@@ -25,6 +24,23 @@ export class App {
    */
   public onMessage(fn) {
     this.reader.on('line', line => fn(line.split(this.delimiter)));
+  }
+
+  /**
+   * Creates a new window instance, resolves once the host has provided a valid
+   * window UID.
+   * @param width Window width
+   * @param height Window height
+   */
+  public async createWindow(width: number, height: number) {
+    return new Promise(r => {
+      this.reader.once('line', line => {
+        // The line is the window ID
+        // TODO: Resolve promise with the window instance.
+        throw new Error('Not implemented yet');
+      });
+      this.socket.write(`MKWIN ${width} ${height}`);
+    })
   }
 
   /**
