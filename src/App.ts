@@ -39,7 +39,7 @@ export class App {
         // TODO: Resolve promise with the window instance.
         throw new Error('Not implemented yet');
       });
-      this.socket.write(`MKWIN ${width} ${height}`);
+      this.socket.write(`MKWIN ${width} ${height}\n`);
     })
   }
 
