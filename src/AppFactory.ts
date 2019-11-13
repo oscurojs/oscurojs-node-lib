@@ -23,11 +23,18 @@ export class AppFactory {
   constructor(private readonly port: number) {}
 
   /**
+   * Default instance.
+   */
+  public static getDefault() {
+    return new AppFactory(DEFAULT_APP_PORT);
+  }
+
+  /**
    * Creates an app.
    * @param delimiter The argument delimiter.
    */
   public async createApp(delimiter: string = DEFAULT_ARG_DELIMITER) {
-    return new Promise(r => {
+    return new Promise<App>(r => {
       let socket: net.Socket;
       socket = net.connect({ port: this.port }, () =>
         r(new App(socket, delimiter))
