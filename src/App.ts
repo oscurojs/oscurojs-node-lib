@@ -4,6 +4,7 @@
  */
 import readline from 'readline';
 import net from 'net';
+import { Window } from './class/Window';
 
 /**
  * The app wrapper represents a connection abstraction between the backend (App
@@ -37,7 +38,7 @@ export class App {
       this.reader.once('line', line => {
         // The line is the window ID
         // TODO: Resolve promise with the window instance.
-        throw new Error('Not implemented yet');
+        r(new Window(line));
       });
       this.socket.write(`MKWIN ${width} ${height}\n`);
     })
