@@ -1,6 +1,8 @@
 import net from 'net';
 import readline from 'readline';
 import { DEFAULT_APP_PORT, DEFAULT_ARG_DELIMITER, AppFactory } from '../src/AppFactory';
+import { expect } from 'chai'
+import { App } from '../src/App';
 
 // Mock server
 const server = net.createServer(socket => {
@@ -22,6 +24,7 @@ describe('Basic app creation', () => {
   const factory = AppFactory.getDefault();
   it('Should connect to the server and return an app', async () => {
     const app = await factory.createApp();
+    expect(app).to.be.instanceOf(App);
   });
   it('Should create a window with a valid ID', async () => {
     const app = await factory.createApp();
