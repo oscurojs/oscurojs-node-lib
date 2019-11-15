@@ -22,13 +22,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 import { expect } from 'chai';
-import { AppFactory } from '../../src/AppFactory';
+import { AppFactory } from '../src/AppFactory';
 
-describe('Simple window creation and destruction', () => {
-  let factory = AppFactory.getDefault();
-
-  let win: Window
-  it('Should create the window', () => {
-    
+describe('Simple window creation and destruction', async () => {
+  const factory = AppFactory.getDefault();
+  const app = await factory.createApp();
+  it('Should create the window', async () => {
+    const win = await app.createWindow(800, 600);
   });
 });

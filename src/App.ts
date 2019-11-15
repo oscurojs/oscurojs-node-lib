@@ -27,7 +27,7 @@ SOFTWARE.
  */
 import readline from 'readline';
 import net from 'net';
-import { Window } from './class/Window';
+import { Window } from './Window';
 
 /**
  * The app wrapper represents a connection abstraction between the backend (App
@@ -61,7 +61,7 @@ export class App {
     if (ok !== 'OK') {
       throw new Error(`Bad response: '${ok}'`);
     }
-    return new Window(id);
+    return new Window(this, id);
   }
 
   /**
@@ -70,18 +70,24 @@ export class App {
    * @param cmd The command to send.
    * @param args The command arguments.
    */
-  public async sendMessage(cmd: string, args: any[]) {
+  public async sendMessage(cmd: string, ...args: any[]) {
     return new Promise<string[]>(resolve => {
       this.reader.once('line', line => {
         resolve(line.split(' '));
       });
-      this.socket.write(cmd + args.map(arg => {
-        if (typeof arg === 'string') {
-          return Buffer.from(arg).toString('base64');
-        } else {
-          return String(arg),
-        }
-      }).join(' ') + '\n');
+      this.socket.write(
+        cmd +
+          args
+            .map(arg => {
+              if (typeof arg === 'string') {
+                return Buffer.from(arg).toString('base64');
+              } else {
+                return String(arg);
+              }
+            })
+            .join(' ') +
+          '\n'
+      );
     });
   }
 

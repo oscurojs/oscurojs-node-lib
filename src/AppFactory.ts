@@ -57,10 +57,10 @@ export class AppFactory {
    * @param delimiter The argument delimiter.
    */
   public async createApp(delimiter: string = DEFAULT_ARG_DELIMITER) {
-    return new Promise<App>(r => {
+    return new Promise<App>(resolve => {
       let socket: net.Socket;
       socket = net.connect({ port: this.port }, () =>
-        r(new App(socket, delimiter))
+        resolve(new App(socket, delimiter))
       );
     });
   }
